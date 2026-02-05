@@ -1,0 +1,99 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>MindShift — Public Verification</title>
+  <meta name="description" content="Read-only public verification page for MindShift Execution Permission Infrastructure." />
+  <style>
+    body { font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; line-height: 1.5; margin: 0; }
+    main { max-width: 860px; margin: 0 auto; padding: 32px 20px; }
+    h1,h2,h3 { line-height: 1.2; }
+    .notice { padding: 12px 14px; border: 1px solid #ddd; border-radius: 10px; background: #fafafa; }
+    code { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", monospace; }
+    .hash { word-break: break-all; }
+    .muted { color: #555; }
+    a { color: inherit; }
+    hr { border: none; border-top: 1px solid #eee; margin: 28px 0; }
+    ul, ol { margin-top: 8px; }
+  </style>
+</head>
+<body>
+<main>
+  <h1>MindShift — Public Verification</h1>
+
+  <div class="notice">
+    <strong>Read-only notice:</strong>
+    This page is non-operational. It grants no execution authority and triggers no system behavior.
+  </div>
+
+  <p><strong>Invariant:</strong> No Decision ID → No Execution</p>
+
+  <hr />
+
+  <h2>Public Canon Packet (SEALED, HASHED)</h2>
+  <p class="muted">SHA-256:</p>
+  <p class="hash"><code>9f099de6dfc22e23caff635e48113d6943c6b7212bc158ffc7fb82fcfff6cc95</code></p>
+  <p><strong>PDF:</strong> <span class="muted">Link added after publication</span></p>
+
+  <hr />
+
+  <h2>Section 8 — Verified Reality Claims</h2>
+  <ol>
+    <li>Real execution can be denied in production when no valid Decision ID is present.</li>
+    <li>The identical execution succeeds immediately when a valid, scoped, unexpired Decision ID is provided.</li>
+    <li>Execution produces independent Proof-of-Transfer confirming that reality changed only as authorized.</li>
+    <li>Authority expires automatically and cannot be silently reused.</li>
+    <li>Non-execution (DENY with no side effects) is observable and logged as positive evidence of enforcement.</li>
+  </ol>
+  <p class="muted">Client identifiers and Decision IDs are intentionally redacted.</p>
+
+  <hr />
+
+  <h2>Section 9 — Public Verification Path</h2>
+  <h3>What can be verified</h3>
+  <ul>
+    <li>Execution is impossible without a valid Decision ID.</li>
+    <li>The same execution succeeds when valid authority is presented.</li>
+    <li>Outcomes are independently verifiable via Proof-of-Transfer.</li>
+    <li>Authority expires and cannot be silently reused.</li>
+  </ul>
+
+  <h3>Verification procedure</h3>
+  <ul>
+    <li><strong>Denial test:</strong> attempt a real execution without a Decision ID → must DENY; no real-world change.</li>
+    <li><strong>Allowance test:</strong> retry the identical execution with a valid Decision ID → must ALLOW; execution completes.</li>
+    <li><strong>Proof-of-Transfer:</strong> verify independent evidence of the authorized change.</li>
+    <li><strong>Expiry re-denial:</strong> after expiry or consumption, retry → must DENY again.</li>
+  </ul>
+
+  <h3>What cannot be verified (by design)</h3>
+  <ul>
+    <li>Decision Registry contents</li>
+    <li>Decision IDs or credentials</li>
+    <li>Enforcement logic or thresholds</li>
+    <li>Internal bindings or integrations</li>
+    <li>Human deliberation or intent</li>
+  </ul>
+
+  <p><strong>Verification guarantee:</strong> If any execution succeeds without a valid Decision ID, MindShift is not present or not enforced.</p>
+
+  <hr />
+
+  <h2>Section 10 — Explicit Non-Claims</h2>
+  <ul>
+    <li>Does not decide or recommend actions</li>
+    <li>Does not judge correctness, quality, ethics, or optimality</li>
+    <li>Does not execute actions or trigger reality changes</li>
+    <li>Does not infer authority from access, role, or context</li>
+    <li>Does not optimize workflows, intelligence, or outcomes</li>
+    <li>Does not certify compliance</li>
+    <li>Does not replace audits, governance programs, or legal review</li>
+    <li>Does not guarantee safety, correctness, or success</li>
+    <li>Does not remove risk from execution</li>
+  </ul>
+
+  <p><strong>Binding rule:</strong> Any interpretation or derivative work contradicting these non-claims is invalid and non-canon.</p>
+</main>
+</body>
+</html>

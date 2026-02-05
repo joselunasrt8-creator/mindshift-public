@@ -38,3 +38,5 @@ jobs:
       - name: Deploy to production
         run: |
           ./deploy.sh
+- curl -f https://mindshift-gate.example/check \
++ curl -f https://<YOUR_REAL_GATE_ENDPOINT>/check \

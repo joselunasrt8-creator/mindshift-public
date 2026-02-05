@@ -26,7 +26,8 @@ jobs:
 
           ARTIFACT_HASH=$(cut -d ' ' -f1 artifact.sha)
 
-          curl -f https://mindshift-gate.example/check \
+- curl -f https://mindshift-gate.example/check \
++ curl -f https://<YOUR_REAL_GATE_ENDPOINT>/check \
             -H "Content-Type: application/json" \
             -d "{
               \"decision_id\": \"$DECISION_ID\",

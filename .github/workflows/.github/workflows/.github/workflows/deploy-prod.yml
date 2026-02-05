@@ -1,0 +1,38 @@
+name: Deploy MindShift to Production
+
+on:
+  workflow_dispatch:
+
+jobs:
+  deploy-prod:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Build artifact
+        run: |
+          ./build.sh
+          sha256sum build.tar.gz > artifact.sha
+
+      - name: MindShift Gate (REQUIRED)
+        env:
+          DECISION_ID: DEPLOY-MINDSHIFT-PROD-001
+          ACTION: deploy.mindshift.production
+          ENVIRONMENT: production
+        run: |
+          ARTIFACT_HASH=$(cut -d ' ' -f1 artifact.sha)
+
+          curl -f https://mindshift-gate.example/check \
+            -H "Content-Type: application/json" \
+            -d "{
+              \"decision_id\": \"$DECISION_ID\",
+              \"action\": \"$ACTION\",
+              \"environment\": \"$ENVIRONMENT\",
+              \"artifact_hash\": \"$ARTIFACT_HASH\"
+            }"
+
+      - name: Deploy to production
+        run: |
+          ./deploy.sh
